@@ -75,19 +75,31 @@ read -r -p "Do you want to configure apache? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
     echo -n "Configuring apache... "
-        sudo sed -i "s/var\/www\/html/var\/www\/$repository\/current\/public/g" /etc/apache2/sites-enabled/000-default.conf
-	    echo "done"
-	    fi
+    sudo sed -i "s/var\/www\/html/var\/www\/$repository\/current\/public/g" /etc/apache2/sites-enabled/000-default.conf
+	echo "done"
+fi
 
-	    echo -n "Restarting apache...";
-	    sudo service apache2 restart > /dev/null
-	    echo "done";
+read -r -p "Do you want to install supervisord? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+    echo -n "Installing supervisord... "
+    sudo apt-get install -y python-setuptools
+	sudo easy_install supervisor
+	sudo mkdir /etc/supervisor
+	sudo su
+	echo_supervisord_conf >  /etc/supervisor/supervisord.conf
+	echo "done, feel free to configure it. (/etc/supervisor/supervisord.conf)"
+fi
 
-	    echo -n "Updating .bashrc... ";
-	    echo "" >> ~/.bashrc
-	    echo "cd /var/www/$repository/current" >> ~/.bashrc
-	    echo "done";
+echo -n "Restarting apache...";
+sudo service apache2 restart > /dev/null
+echo "done";
 
-	    echo "";
+echo -n "Updating .bashrc... ";
+echo "" >> ~/.bashrc
+echo "cd /var/www/$repository/current" >> ~/.bashrc
+echo "done";
 
-	    echo "All done! Don't forget to copy in your .env!"
+echo "";
+
+echo "All done! Don't forget to copy in your .env!"
