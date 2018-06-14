@@ -42,9 +42,6 @@ echo -n "Adding PHP 7.2..."
 sudo apt-get install -y php7.2 > /dev/null
 echo "done"
 
-echo -n "Adding unzip..."
-sudo apt-get install -y php7.2-unzip > /dev/null
-echo "done"
 echo -n "Adding zip..."
 sudo apt-get install -y php7.2-zip > /dev/null
 echo "done"
