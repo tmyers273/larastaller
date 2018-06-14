@@ -30,30 +30,33 @@ cat ~/.ssh/id_rsa.pub
 echo "Done?"
 read isDone
 
+echo -n "Adding repository for PHP 7.2..."
+sudo add-apt-repository ppa:ondrej/php -y
+echo "done"
+
 echo -n "Updating apt..."
 sudo apt-get update
 echo "done"
 
+echo -n "Adding PHP 7.2..."
+sudo apt-get install -y php7.2 > /dev/null
+echo "done"
+
 echo -n "Adding unzip..."
-sudo apt-get install -y unzip > /dev/null
+sudo apt-get install -y php7.2-unzip > /dev/null
 echo "done"
 echo -n "Adding zip..."
-sudo apt-get install -y zip > /dev/null
+sudo apt-get install -y php7.2-zip > /dev/null
 echo "done"
 
 echo -n "Adding php-mbstring..."
-sudo apt-get install -y php-mbstring > /dev/null
+sudo apt-get install -y php7.2-mbstring > /dev/null
 echo "done"
 echo -n "Adding php-xml..."
-sudo apt-get install -y php-xml > /dev/null
+sudo apt-get install -y php7.2-xml > /dev/null
 echo "done";
-echo -n "Adding php-zip..."
-apt-get install -y php-zip > /dev/null
-echo "done";
-echo -n "Adding php-curl, php7.1-xml, and php7.1-mbstring..."
-apt-get install -y php-curl > /dev/null
-apt-get install -y php7.1-xml > /dev/null
-apt-get install -y php7.1-mbstring > /dev/null
+echo -n "Adding php-curl..."
+apt-get install -y php7.2-curl > /dev/null
 echo "done";
 
 echo -n "Cloning repo git@github.com:$username/$repository.git...";
