@@ -91,6 +91,9 @@ then
 	echo "done, feel free to configure it. (/etc/supervisor/supervisord.conf)"
 fi
 
+sudo a2dismod php7.0
+sudo a2enmod php7.2
+
 echo -n "Restarting apache...";
 sudo service apache2 restart > /dev/null
 echo "done";
