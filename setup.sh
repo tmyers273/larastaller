@@ -30,16 +30,8 @@ cat ~/.ssh/id_rsa.pub
 echo "Done?"
 read isDone
 
-echo -n "Adding repository for PHP 7.2..."
-sudo add-apt-repository ppa:ondrej/php -y
-echo "done"
-
 echo -n "Updating apt..."
 sudo apt-get update
-echo "done"
-
-echo -n "Adding PHP 7.2..."
-sudo apt-get install -y php7.2 > /dev/null
 echo "done"
 
 echo -n "Adding zip..."
@@ -90,9 +82,6 @@ then
 	echo_supervisord_conf >  /etc/supervisor/supervisord.conf
 	echo "done, feel free to configure it. (/etc/supervisor/supervisord.conf)"
 fi
-
-sudo a2dismod php7.0
-sudo a2enmod php7.2
 
 echo -n "Restarting apache...";
 sudo service apache2 restart > /dev/null
