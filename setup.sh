@@ -35,17 +35,17 @@ sudo apt-get update
 echo "done"
 
 echo -n "Adding zip..."
-sudo apt-get install -y php7.2-zip > /dev/null
+sudo apt-get install -y php7.4-zip > /dev/null
 echo "done"
 
 echo -n "Adding php-mbstring..."
-sudo apt-get install -y php7.2-mbstring > /dev/null
+sudo apt-get install -y php7.4-mbstring > /dev/null
 echo "done"
 echo -n "Adding php-xml..."
-sudo apt-get install -y php7.2-xml > /dev/null
+sudo apt-get install -y php7.4-xml > /dev/null
 echo "done";
 echo -n "Adding php-curl..."
-apt-get install -y php7.2-curl > /dev/null
+apt-get install -y php7.4-curl > /dev/null
 echo "done";
 
 echo -n "Cloning repo git@github.com:$username/$repository.git...";
